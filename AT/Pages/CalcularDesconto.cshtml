@@ -1,0 +1,22 @@
+﻿@page
+@model AT.Pages.CalcularDescontoModel
+@{
+}
+<h1>Calcular Desconto</h1>
+
+<form method="post">
+	<div class="form-group">
+		<label>Valor da diária:</label>
+		<input asp-for="Valor" class="form-control" />
+		<button type="submit" class="btn btn-primary mt-2">Calcular</button>
+	</div>
+
+</form>
+
+@if(Model.ValorComDesconto.HasValue)
+{
+	<div class="alert alert-success mt-3">
+		<h3>Valor com desconto:</h3>
+		@Model.ValorComDesconto.Value.ToString("C")
+	</div>
+}
