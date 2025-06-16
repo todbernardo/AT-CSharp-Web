@@ -1,0 +1,23 @@
+﻿@page
+@model AT.Pages.CalcReservaModel
+@{
+}
+<h1>Calcular Preço da Reserva</h1>
+
+<form method="post">
+	<div class="form-group">
+		<label>Número de diárias:</label>
+		<input asp-for="NumDiarias" class="form-control"/>
+		<label>Valor da diária:</label>
+		<input asp-for="ValorDiaria" class="form-control" />
+		<button type="submit" class="btn btn-primary mt-2">Calcular</button>
+	</div>
+</form>
+
+@if(Model.ValorTotal.HasValue)
+{
+	<div class="alert alert-success mt-3">
+		<h3>Valor total da reserva:</h3>
+		@Model.ValorTotal.Value.ToString("C")
+	</div>
+}

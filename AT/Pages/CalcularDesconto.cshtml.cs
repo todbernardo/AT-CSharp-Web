@@ -1,7 +1,6 @@
-using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using static AT.Services.DescontoService;
+using static AT.Models.Desconto;
 
 namespace AT.Pages
 {

@@ -1,6 +1,6 @@
-﻿namespace AT.Services
+﻿namespace AT.Models
 {
-    public class DescontoService
+    public class Desconto
     {
         public delegate decimal CalculateDelegate(decimal valor);
 
