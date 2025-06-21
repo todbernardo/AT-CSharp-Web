@@ -1,0 +1,35 @@
+﻿@page "{id:int}"
+@model AT.Pages.Destinos.DestinoEditModel
+@{
+}
+
+<h1>Editar Destino</h1>
+
+@if (Model.Destino == null)
+{
+    <div class="alert alert-danger">Destino não encontrado.</div>
+}
+else
+{
+    <form method="post">
+        <input type="hidden" asp-for="Destino.Id" />
+
+        <div class="form-group">
+            <label>Nome do destino:</label>
+            <input asp-for="Destino.Nome" class="form-control" />
+            <span asp-validation-for="Destino.Nome" class="text-danger"></span>
+            <br />
+
+            <label>País do destino:</label>
+            <input asp-for="Destino.Pais" class="form-control" />
+            <span asp-validation-for="Destino.Pais" class="text-danger"></span>
+            <br />
+
+            <a asp-page="/Destinos/DestinoIndex" class="btn btn-primary mt-2">Cancelar</a>
+            <button type="submit" class="btn btn-primary mt-2">Salvar</button>
+        </div>
+    </form>
+}
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,21 @@
+﻿@page
+@model AT.Pages.Destinos.CreateDestinoModel
+@{
+}
+<h1>Criar um Destino</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label>Nome do destino:</label>
+        <input asp-for="destino.Nome" class="form-control" />
+        <span asp-validation-for="destino.Nome" class="text-danger"></span>
+        <br/>
+
+        <label>País:</label>
+        <input asp-for="destino.Pais" class="form-control"></input>
+        <span asp-validation-for="destino.Pais" class="text-danger"></span>
+        <br />
+        <button type="submit" class="btn btn-primary mt-2">Criar</button>
+    </div>
+</form>
+

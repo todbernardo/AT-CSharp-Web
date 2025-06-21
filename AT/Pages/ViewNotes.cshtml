@@ -1,0 +1,46 @@
+﻿@page
+@model AT.Pages.ViewNotesModel
+@{
+}
+<h1>Criar Nota</h1>
+<br />
+
+<form method="post">
+    <div class="form-group">
+        <label>Título do arquivo (no final coloque ".txt"):</label>
+        <input asp-for="NomeArquivo" class="form-control"/>
+        <span asp-validation-for="NomeArquivo" class="text-danger"></span>
+        <br /><br />
+
+        <label>Conteúdo da nota: </label>
+        <textarea asp-for="Conteudo" class="form-control" rows="5" cols="50"></textarea>
+        <span asp-validation-for="Conteudo" class="text-danger"></span>
+        <br /><br />
+
+        <button type="submit" class="btn btn-primary mt-2">Salvar</button>
+    </div>
+</form>
+
+@if (Model.NotaSalva != null)
+{
+<div class="alert alert-success mt-3">@Model.NotaSalva</div>
+}
+
+<h2 class="mt-5">Arquivos Salvos</h2>
+
+<ul>
+    @foreach (var file in Model.Arquivos)
+    {
+        <li>
+            <a asp-page="ViewNotes" asp-route-ArquivoSelecionado="@file">@file</a>
+        </li>
+    }
+</ul>
+
+@if (!string.IsNullOrEmpty(Model.ConteudoArquivo))
+{
+    <div class="mt-4">
+        <h4>Conteúdo de @Model.ArquivoSelecionado:</h4>
+        <pre>@Model.ConteudoArquivo</pre>
+    </div>
+}

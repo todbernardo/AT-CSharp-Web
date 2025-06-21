@@ -1,0 +1,46 @@
+﻿@page
+@model AT.Pages.Destinos.DestinoIndexModel
+@{
+}
+
+<h1>Lista de Destinos</h1>
+
+<p>
+    <a asp-page="/Destinos/CreateDestino" class="btn btn-success">+ Novo Destino</a>
+</p>
+
+@if (Model.Destinos == null || !Model.Destinos.Any())
+{
+    <div class="alert alert-info">Nenhum destino encontrado.</div>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>País</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var destino in Model.Destinos)
+            {
+                <tr>
+                    <td>@destino.Id</td>
+                    <td>@destino.Nome</td>
+                    <td>@destino.Pais</td>
+                    <td>
+                        <a asp-page="/Destinos/DestinoDetails" asp-route-id="@destino.Id" class="btn btn-primary mt-2">Detalhes</a>
+                        <a asp-page="/Destinos/DestinoEdit" asp-route-id="@destino.Id" class="btn btn-primary mt-2">Editar</a>
+
+                        <form method="post" asp-page-handler="Delete" asp-route-id="@destino.Id">
+                            <button type="submit" class="btn btn-danger mt-2">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

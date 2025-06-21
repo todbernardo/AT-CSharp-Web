@@ -1,0 +1,22 @@
+﻿@page
+@model AT.Pages.Autenticacao.LoginModel
+@{
+    Layout = null;
+}
+
+<h2>Login</h2>
+
+<form method="post">
+    <label>Usuário:</label>
+    <input asp-for="Usuario" />
+    <br />
+    <label>Senha:</label>
+    <input asp-for="Senha" type="password" />
+    <br />
+    <button type="submit">Entrar</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <p style="color:red">@Model.ErrorMessage</p>
+}
